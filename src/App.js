@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import LeftSide from './components/leftSide'
+import RightSide from './components/rightSide'
 import './App.css';
+
+
+const MyContext = React.createContext('Hello Context');
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <MyContext.Provider value="Hi">
+        <LeftSide/>
+      </MyContext.Provider>
+
+      <RightSide/>     
+
     </div>
   );
 }
 
+export const Context = MyContext;
 export default App;
+
